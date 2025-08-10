@@ -4,7 +4,7 @@ import re
 # دیکشنری عناوین فصل‌ها (بدون تغییر)
 chapters = {
     1: "مشاهده ویدئو آشنایی با فصل اول - مقدمه ای بر فرآیندهای تولید در مقیاس وسیع",
-    2: "مشاهده ویدئو آشنایی با فصل دوم - زیرساخت‌های فرآیند بالادستی", 
+    2: "مشاهده ویدئو آشنایی با فصل دوم - زیرساخت‌های فرآیند بالادستی",
     3: "مشاهده ویدئو آشنایی با فصل سوم - طراحی و مهندسی بیوراکتور",
     4: "مشاهده ویدئو آشنایی با فصل چهارم - کنترل و نظارت فرآیند",
     5: "مشاهده ویدئو آشنایی با فصل پنجم - فرآیندهای جداسازی پایین‌دستی",
@@ -81,9 +81,9 @@ for chapter_num in range(2, 13):
         # جایگزینی نوار نویگیشن قدیمی با جدید (بدون تغییر)
         content = re.sub(
             r'<nav class="video-nav">.*?</nav>', 
-            new_nav_content,                     
+            new_nav_content,                       
             content,
-            flags=re.DOTALL                      
+            flags=re.DOTALL                        
         )
 
         # محتوای جدید بخش ویدیو (بدون تغییر)
@@ -120,9 +120,7 @@ for chapter_num in range(2, 13):
         </div>
     </div>'''
         
-        # === خط اصلاح شده ===
-        # الگوی قدیمی: r'<div class="video-content">.*?</div>'
-        # الگوی جدید و صحیح‌تر:
+        # جایگزینی بخش ویدیو (بدون تغییر)
         pattern_to_replace = r'<div class="video-content">.*?<div class="video-actions">.*?</div>\s*</div>'
         
         content = re.sub(
@@ -132,12 +130,13 @@ for chapter_num in range(2, 13):
             flags=re.DOTALL
         )
         
-        # افزودن فوتر (بدون تغییر)
-        if footer_content.strip() not in content:
-            # اسکریپت اصلی شما chapter-script.js بود، من آن را به chapter-dropdown.js تغییر دادم
-            # تا با فایل‌های HTML شما هماهنگ باشد.
+        # =======================================================
+        # === خط اصلاح شده برای جلوگیری از تکرار فوتر ===
+        # =======================================================
+        # به جای چک کردن کل محتوای فوتر، فقط یک نشانه منحصر به فرد را چک می‌کنیم
+        if '<footer class="site-footer">' not in content:
             content = content.replace(
-                '    <script src="chapter-dropdown.js"></script>',
+                '   <script src="chapter-dropdown.js"></script>',
                 footer_content + '\n\n    <script src="chapter-dropdown.js"></script>'
             )
         
