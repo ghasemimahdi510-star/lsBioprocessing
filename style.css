@@ -90,7 +90,7 @@ body {
     padding-bottom: 4rem;
 }
 
-/* Chapter grid - 4 rows layout */
+/* Chapter grid */
 .chapters-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -100,23 +100,20 @@ body {
     padding: 2rem;
 }
 
-/* Row 4: Single chapter (Chapter 10) - left aligned */
-.chapter-card:nth-child(10) {
-    grid-column: 1 / 2;
+/* Specific grid positioning for desktop view */
+.chapter-card[data-chapter="10"] {
+    grid-column: 1 / span 1;
 }
 
-/* Appendices row - left aligned */
-.chapter-card:nth-child(11) {
-    grid-column: 1 / 2;
+.chapter-card[data-chapter="appendixA"] {
+    grid-column: 1 / span 1;
+}
+.chapter-card[data-chapter="appendixB"] {
+    grid-column: 2 / span 1;
 }
 
-.chapter-card:nth-child(12) {
-    grid-column: 2 / 3;
-}
-
-/* References - last row, left aligned */
 .references-card {
-    grid-column: 1 / 2 !important;
+    grid-column: 1 / span 1 !important;
     margin-top: 2rem;
 }
 
@@ -132,55 +129,25 @@ body {
 }
 
 /* Harmonious blue gradient colors for all chapters */
-.chapter-card:nth-child(1) { 
-    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(59, 130, 246, 0.12)); 
-    border-color: rgba(56, 189, 248, 0.25); 
-}
-.chapter-card:nth-child(2) { 
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.12)); 
-    border-color: rgba(59, 130, 246, 0.25); 
-}
-.chapter-card:nth-child(3) { 
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(139, 92, 246, 0.12)); 
-    border-color: rgba(99, 102, 241, 0.25); 
-}
-.chapter-card:nth-child(4) { 
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(168, 85, 247, 0.12)); 
-    border-color: rgba(139, 92, 246, 0.25); 
-}
-.chapter-card:nth-child(5) { 
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.12), rgba(147, 51, 234, 0.12)); 
-    border-color: rgba(168, 85, 247, 0.25); 
-}
-.chapter-card:nth-child(6) { 
-    background: linear-gradient(135deg, rgba(147, 51, 234, 0.12), rgba(126, 34, 206, 0.12)); 
-    border-color: rgba(147, 51, 234, 0.25); 
-}
-.chapter-card:nth-child(7) { 
-    background: linear-gradient(135deg, rgba(126, 34, 206, 0.12), rgba(107, 33, 168, 0.12)); 
-    border-color: rgba(126, 34, 206, 0.25); 
-}
-.chapter-card:nth-child(8) { 
-    background: linear-gradient(135deg, rgba(107, 33, 168, 0.12), rgba(88, 28, 135, 0.12)); 
-    border-color: rgba(107, 33, 168, 0.25); 
-}
-.chapter-card:nth-child(9) { 
-    background: linear-gradient(135deg, rgba(88, 28, 135, 0.12), rgba(79, 70, 229, 0.12)); 
-    border-color: rgba(88, 28, 135, 0.25); 
-}
-.chapter-card:nth-child(10) { 
-    background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(67, 56, 202, 0.12)); 
-    border-color: rgba(79, 70, 229, 0.25); 
-}
+.chapter-card:nth-child(1) { background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(59, 130, 246, 0.12)); border-color: rgba(56, 189, 248, 0.25); }
+.chapter-card:nth-child(2) { background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.12)); border-color: rgba(59, 130, 246, 0.25); }
+.chapter-card:nth-child(3) { background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(139, 92, 246, 0.12)); border-color: rgba(99, 102, 241, 0.25); }
+.chapter-card:nth-child(4) { background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(168, 85, 247, 0.12)); border-color: rgba(139, 92, 246, 0.25); }
+.chapter-card:nth-child(5) { background: linear-gradient(135deg, rgba(168, 85, 247, 0.12), rgba(147, 51, 234, 0.12)); border-color: rgba(168, 85, 247, 0.25); }
+.chapter-card:nth-child(6) { background: linear-gradient(135deg, rgba(147, 51, 234, 0.12), rgba(126, 34, 206, 0.12)); border-color: rgba(147, 51, 234, 0.25); }
+.chapter-card:nth-child(7) { background: linear-gradient(135deg, rgba(126, 34, 206, 0.12), rgba(107, 33, 168, 0.12)); border-color: rgba(126, 34, 206, 0.25); }
+.chapter-card:nth-child(8) { background: linear-gradient(135deg, rgba(107, 33, 168, 0.12), rgba(88, 28, 135, 0.12)); border-color: rgba(107, 33, 168, 0.25); }
+.chapter-card:nth-child(9) { background: linear-gradient(135deg, rgba(88, 28, 135, 0.12), rgba(79, 70, 229, 0.12)); border-color: rgba(88, 28, 135, 0.25); }
+.chapter-card:nth-child(10) { background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(67, 56, 202, 0.12)); border-color: rgba(79, 70, 229, 0.25); }
 
-/* Special styling for appendices (chapters 11-12) */
-.chapter-card:nth-child(11), .chapter-card:nth-child(12) { 
-    background: linear-gradient(135deg, rgba(67, 56, 202, 0.12), rgba(55, 48, 163, 0.12)); 
+/* Special styling for appendices (data-chapter with text) */
+.chapter-card[data-chapter="appendixA"], .chapter-card[data-chapter="appendixB"] {
+    background: linear-gradient(135deg, rgba(67, 56, 202, 0.12), rgba(55, 48, 163, 0.12));
     border: 2px solid rgba(67, 56, 202, 0.25);
     position: relative;
 }
 
-.chapter-card:nth-child(11)::before, .chapter-card:nth-child(12)::before {
+.chapter-card[data-chapter="appendixA"]::before, .chapter-card[data-chapter="appendixB"]::before {
     content: '';
     position: absolute;
     top: 0;
@@ -212,9 +179,9 @@ body {
 .chapter-card:nth-child(8):hover { border-color: rgba(34, 197, 94, 0.6); box-shadow: 0 25px 50px rgba(34, 197, 94, 0.3); }
 .chapter-card:nth-child(9):hover { border-color: rgba(156, 163, 175, 0.6); box-shadow: 0 25px 50px rgba(156, 163, 175, 0.3); }
 .chapter-card:nth-child(10):hover { border-color: rgba(245, 158, 11, 0.6); box-shadow: 0 25px 50px rgba(245, 158, 11, 0.3); }
-.chapter-card:nth-child(11):hover, .chapter-card:nth-child(12):hover { 
-    border-color: rgba(148, 163, 184, 0.8); 
-    box-shadow: 0 25px 50px rgba(148, 163, 184, 0.4); 
+.chapter-card[data-chapter="appendixA"]:hover, .chapter-card[data-chapter="appendixB"]:hover {
+    border-color: rgba(148, 163, 184, 0.8);
+    box-shadow: 0 25px 50px rgba(148, 163, 184, 0.4);
 }
 
 .chapter-image {
@@ -312,7 +279,7 @@ body {
 }
 
 .modal-content {
-    background: white;
+    background: #f8fafc;
     margin: 10% auto;
     padding: 2rem;
     border-radius: 1rem;
@@ -322,6 +289,7 @@ body {
     position: relative;
     text-align: center;
     animation: modal-appear 0.3s ease-out;
+    color: #1f2937;
 }
 
 @keyframes modal-appear {
@@ -376,6 +344,7 @@ body {
     border: none;
     cursor: pointer;
     font-size: 1rem;
+    font-family: 'Vazirmatn', sans-serif;
 }
 
 .video-btn {
@@ -532,17 +501,48 @@ body {
     font-weight: 600;
 }
 
-/* کد اصلاح شده (راه حل) */
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+/* 🔄 بازطراحی کامل فریم ویدیو و هاله آن */
 .video-container {
     width: 100%;
     max-width: 800px;
-    margin: 2rem auto; /* کمی مارجین بالا و پایین برای زیبایی بیشتر */
-    border-radius: 0.75rem; /* هم‌اندازه با گردی گوشه ویدیو */
-    overflow: hidden; /* مهم: گوشه‌های بیرون زده‌ی iframe را مخفی می‌کند */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); /* یک سایه برای عمق دادن */
+    margin: 2rem auto;
+    border-radius: 0.75rem;
+    position: relative;
+    padding: 0; /* حذف هرگونه پدینگ که ممکن است مشکل ایجاد کند */
+    overflow: hidden; /* بسیار مهم برای جلوگیری از بیرون‌زدگی هاله */
+}
 
-    /* padding, background و backdrop-filter حذف شدند چون دیگر لازم نیستند */
+/* ❇️ طراحی هاله شیشه‌ای به عنوان پس‌زمینه جدید */
+.video-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(139, 92, 246, 0.1));
+    backdrop-filter: blur(20px);
+    border-radius: 1rem;
+    z-index: -1; /* قرارگیری در پشت محتوای ویدیو */
+    transition: all 0.3s ease;
+}
+
+.video-container:hover::before {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(1.01);
+}
+
+/* اصلاح برای محتوای درون ویدیو-کانتینر */
+.video-container video, .video-container iframe {
+    width: 100%;
+    height: auto; /* برای حفظ نسبت تصویر */
+    display: block;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
 }
 
 .video-info {
@@ -881,12 +881,20 @@ body {
     font-size: 0.9rem;
 }
 
+/* 🟢 کدهای اصلاح‌شده برای references-disclaimer در این بخش قرار گرفته‌اند. */
 .references-disclaimer {
     background: rgba(139, 92, 246, 0.1);
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    border-radius: 20px;
-    padding: 2rem;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
     margin-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+.references-disclaimer:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    background: rgba(15, 23, 42, 0.5);
+    transform: translateY(-2px);
 }
 
 .disclaimer-content h3 {
@@ -952,7 +960,6 @@ body {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 2rem;
 }
 
 /* Button order: Aparat - YouTube - Download */
@@ -1091,7 +1098,7 @@ body {
 }
 
 .dropdown-item:hover {
-    background: rgba(56, 189, 248, 0.1);
+    background: rgba(56, 189, 248, 0.15);
     color: #38bdf8;
     padding-right: 1.5rem;
 }
@@ -1101,6 +1108,7 @@ body {
 }
 
 .dropdown-arrow {
+    margin-right: 0.5rem;
     transition: transform 0.3s ease;
 }
 
@@ -1202,11 +1210,6 @@ body {
     border-bottom: none;
 }
 
-.chapters-btn.active {
-    background: rgba(56, 189, 248, 0.3);
-    border-color: rgba(56, 189, 248, 0.5);
-}
-
 .dropdown-arrow {
     margin-right: 0.5rem;
     transition: transform 0.3s ease;
@@ -1274,13 +1277,17 @@ body {
     .video-content {
         padding: 1rem;
     }
+    
+    .video-main-title {
+        font-size: 1.5rem;
+    }
 }
 .nav-btn, .nav-btn * {
     font-family: 'Vazirmatn', sans-serif !important;
     font-weight: 500;
 }
 /* =================================================================== */
-/* Dropdown Final Solution - With Hidden Scrollbar                 */
+/* Dropdown Final Solution - With Hidden Scrollbar                     */
 /* =================================================================== */
 
 /* والد منو باید این خاصیت را داشته باشد */
@@ -1297,7 +1304,7 @@ body {
     right: auto;
 
     /* ۲. رفتار داخلی */
-    direction: rtl; 
+    direction: rtl;    
 
     /* ۳. کنترل پهنا و ارتفاع */
     width: 320px;
@@ -1332,13 +1339,13 @@ body {
 }
 
 .nav-logo {
-    height: 120px; /* تغییر از 50px به 120px */
+    height: 120px;
     width: auto;
     transition: transform 0.3s ease;
 }
 
 .nav-logo:hover {
-    transform: scale(1.05); /* این مقدار را هم کمی کاهش دادم تا مشابه لوگوی اصلی شود */
+    transform: scale(1.05);
 }
 /* ============================================== */
 /* کدهای جدید برای ریسپانسیو کردن گرید کارت‌ها */
@@ -1351,8 +1358,21 @@ body {
 /* برای تبلت و صفحات نمایش متوسط (مثلا تا عرض 1024 پیکسل) */
 @media (max-width: 1024px) {
     .chapters-grid {
-        grid-template-columns: repeat(2, 1fr); /* نمایش به صورت دو ستونه */
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
+    }
+    /* چیدمان پیوست‌ها و منابع برای حالت تبلت */
+    .chapter-card[data-chapter="10"] {
+        grid-column: auto;
+    }
+    .chapter-card[data-chapter="appendixA"] {
+        grid-column: 1 / span 1;
+    }
+    .chapter-card[data-chapter="appendixB"] {
+        grid-column: 2 / span 1;
+    }
+    .references-card {
+        grid-column: 1 / span 2 !important;
     }
 }
 
@@ -1360,46 +1380,43 @@ body {
 /* این کد جایگزین کد قبلی شما برای این سایز می‌شود */
 @media (max-width: 768px) {
     .chapters-grid {
-        grid-template-columns: 1fr; /* نمایش به صورت تک ستونه */
+        grid-template-columns: 1fr;
         padding: 1rem;
         gap: 1rem;
     }
 
     /* در حالت موبایل، چیدمان خاص برخی کارت‌ها را حذف می‌کنیم تا همه زیر هم باشند */
-    .chapter-card:nth-child(10),
-    .chapter-card:nth-child(11),
-    .chapter-card:nth-child(12) {
-        grid-column: auto;
-    }
-
+    .chapter-card[data-chapter="10"],
+    .chapter-card[data-chapter="appendixA"],
+    .chapter-card[data-chapter="appendixB"],
     .references-card {
         grid-column: auto !important;
+        margin-top: 0;
     }
 }
 .chapter-card:nth-child(10) {
-    grid-column: auto; 
+    grid-column: auto;
 }
 /* ============================================== */
-/* اصلاح اندازه لوگو در حالت موبایل         */
+/* اصلاح اندازه لوگو در حالت موبایل            */
 /* ============================================== */
 
 @media (max-width: 768px) {
     .nav-logo {
-        height: 70px; /* کاهش اندازه لوگو در موبایل */
-        margin-top: 0.5rem; /* کمی فاصله از بالا برای زیبایی */
-        margin-bottom: 0.5rem; /* کمی فاصله از پایین برای زیبایی */
+        height: 70px;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
     }
 
     .video-nav {
-        padding: 1rem; /* کمی پدینگ داخلی برای جلوگیری از چسبندگی */
+        padding: 1rem;
     }
 }
 /* ============================================== */
-/* اصلاح موقعیت منوی کشویی در حالت موبایل      */
+/* اصلاح موقعیت منوی کشویی در حالت موبایل        */
 /* ============================================== */
 @media (max-width: 768px) {
     .chapters-dropdown {
-        /* دکمه را تمام‌عرض می‌کنیم تا منو موقعیت درستی داشته باشد */
         width: 100%;
         display: flex;
         justify-content: center;
@@ -1407,16 +1424,15 @@ body {
 
     #chapters-dropdown-menu,
     .dropdown-menu {
-        /* --- کدهای اصلی برای وسط‌چین کردن --- */
-        position: absolute; /* یا fixed اگر می‌خواهید با اسکرول جابجا نشود */
+        position: absolute;
         left: 50%;
         right: auto;
         transform: translateX(-50%);
-        /* --- پایان کدهای اصلی --- */
         
-        width: 90vw; /* عرض منو را واکنش‌گرا می‌کنیم */
-        max-width: 350px; /* یک حداکثر عرض برای جلوگیری از کشیدگی زیاد */
+        width: 90vw;
+        max-width: 350px;
     }
+
 
     /* ... سایر کدهای شما در این مدیا کوئری ... */
 }
